@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.jwolfe.ankyl.client.CryptoTryoutMain">
+  <grid id="27dc6" binding="cryptoMainPanel" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="976" height="561"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="849da" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag top="3" left="10" bottom="3" right="10" weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="f3e5f" class="javax.swing.JButton" binding="encryptButton" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value="Encrypt"/>
+            </properties>
+          </component>
+          <component id="b22de" class="javax.swing.JButton" binding="decryptButton" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value="Decrypt"/>
+            </properties>
+          </component>
+          <component id="c05b4" class="javax.swing.JButton" binding="cancelButton" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value="Cancel"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="5caa0" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag top="10" left="3" bottom="3" right="10" weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="52c43" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="7f52e" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Algorithm"/>
+                </properties>
+              </component>
+              <grid id="fb988" layout-manager="GridLayoutManager" row-count="15" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="2" left="2" bottom="2" right="2"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="2edf4" class="javax.swing.JRadioButton" binding="AESRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <selected value="true"/>
+                      <text value="AES"/>
+                    </properties>
+                  </component>
+                  <component id="985e7" class="javax.swing.JRadioButton" binding="ARCFOURRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="ARCFOUR"/>
+                    </properties>
+                  </component>
+                  <component id="d689a" class="javax.swing.JRadioButton" binding="AESWrapRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="AES Wrap"/>
+                    </properties>
+                  </component>
+                  <component id="9606a" class="javax.swing.JRadioButton" binding="blowfishRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="Blowfish"/>
+                    </properties>
+                  </component>
+                  <component id="4d9a1" class="javax.swing.JRadioButton" binding="CCMRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="CCM"/>
+                    </properties>
+                  </component>
+                  <component id="a0923" class="javax.swing.JRadioButton" binding="DESRadioButton">
+                    <constraints>
+                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="DES"/>
+                    </properties>
+                  </component>
+                  <component id="15a30" class="javax.swing.JRadioButton" binding="a3DESRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="3DES"/>
+                    </properties>
+                  </component>
+                  <component id="b812d" class="javax.swing.JRadioButton" binding="a3DESWrapRadioButton">
+                    <constraints>
+                      <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="3DES Wrap"/>
+                    </properties>
+                  </component>
+                  <component id="bd0c0" class="javax.swing.JRadioButton" binding="ECIESRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="ECIES"/>
+                    </properties>
+                  </component>
+                  <component id="6f36f" class="javax.swing.JRadioButton" binding="GCMRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="GCM"/>
+                    </properties>
+                  </component>
+                  <component id="702f8" class="javax.swing.JRadioButton" binding="PBERadioButton1" default-binding="true">
+                    <constraints>
+                      <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="PBE"/>
+                    </properties>
+                  </component>
+                  <component id="5968f" class="javax.swing.JRadioButton" binding="RC2RadioButton1" default-binding="true">
+                    <constraints>
+                      <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="RC2"/>
+                    </properties>
+                  </component>
+                  <component id="c0e9b" class="javax.swing.JRadioButton" binding="RC4RadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="RC4"/>
+                    </properties>
+                  </component>
+                  <component id="b1102" class="javax.swing.JRadioButton" binding="RC5RadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="13" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="RC5"/>
+                    </properties>
+                  </component>
+                  <component id="47910" class="javax.swing.JRadioButton" binding="RSARadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="RSA"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <vspacer id="aae26">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+            </children>
+          </grid>
+          <vspacer id="cfebe">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <grid id="1482f" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="70809" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Mode"/>
+                </properties>
+              </component>
+              <grid id="a59a8" layout-manager="GridLayoutManager" row-count="9" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="2" left="2" bottom="2" right="2"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="42133" class="javax.swing.JRadioButton" binding="noneRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="None"/>
+                    </properties>
+                  </component>
+                  <component id="d2ca5" class="javax.swing.JRadioButton" binding="CBCRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <selected value="true"/>
+                      <text value="CBC"/>
+                    </properties>
+                  </component>
+                  <component id="c13a5" class="javax.swing.JRadioButton" binding="CFBRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="CFB"/>
+                    </properties>
+                  </component>
+                  <component id="2f98a" class="javax.swing.JRadioButton" binding="CTRRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="CTR"/>
+                    </properties>
+                  </component>
+                  <component id="a20d3" class="javax.swing.JRadioButton" binding="CTSRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="CTS"/>
+                    </properties>
+                  </component>
+                  <component id="91505" class="javax.swing.JRadioButton" binding="ECBRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <selected value="false"/>
+                      <text value="ECB"/>
+                    </properties>
+                  </component>
+                  <component id="eb5de" class="javax.swing.JRadioButton" binding="OFBRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="OFB"/>
+                    </properties>
+                  </component>
+                  <component id="bdd52" class="javax.swing.JRadioButton" binding="PCBCRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="PCBC"/>
+                    </properties>
+                  </component>
+                  <vspacer id="bcd8c">
+                    <constraints>
+                      <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </vspacer>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="564e9" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="b6666" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Padding"/>
+                </properties>
+              </component>
+              <grid id="6e274" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="2" left="2" bottom="2" right="2"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="2b676" class="javax.swing.JRadioButton" binding="noPaddingRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="No Padding"/>
+                    </properties>
+                  </component>
+                  <component id="c81ac" class="javax.swing.JRadioButton" binding="ISO20126RadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="ISO 20126"/>
+                    </properties>
+                  </component>
+                  <component id="1ec7" class="javax.swing.JRadioButton" binding="OAEPRadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="OAEP"/>
+                    </properties>
+                  </component>
+                  <component id="31204" class="javax.swing.JRadioButton" binding="PKCS1RadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="PKCS 1"/>
+                    </properties>
+                  </component>
+                  <component id="b30fb" class="javax.swing.JRadioButton" binding="PKCS5RadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <selected value="true"/>
+                      <text value="PKCS 5"/>
+                    </properties>
+                  </component>
+                  <component id="41fd7" class="javax.swing.JRadioButton" binding="SSL3RadioButton" default-binding="true">
+                    <constraints>
+                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="SSL 3"/>
+                    </properties>
+                  </component>
+                  <vspacer id="5803b">
+                    <constraints>
+                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </vspacer>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <hspacer id="dfa65">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+        </children>
+      </grid>
+      <tabbedpane id="ad633" binding="modeTabPane">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+          <gridbag top="10" left="10" bottom="3" right="3" weightx="10.0" weighty="10.0"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="adcaa" binding="fileEncryptTabPanel" layout-manager="GridLayoutManager" row-count="12" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="2" left="2" bottom="2" right="2"/>
+            <constraints>
+              <tabbedpane title="File - Encrypt"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="e27e0" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Select file to encrypt:"/>
+                </properties>
+              </component>
+              <component id="a795e" class="javax.swing.JTextField" binding="feSourceFileTextField">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="/home/apput/Desktop/Workshop/config/fr-automation.yaml"/>
+                </properties>
+              </component>
+              <component id="7ca18" class="javax.swing.JCheckBox" binding="feEncryptInPlaceCheckBox">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Encrypt in-place"/>
+                </properties>
+              </component>
+              <component id="ddbc9" class="javax.swing.JTextField" binding="feOutputDirectoryTextField">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="/home/apput/Desktop/Workshop/output/"/>
+                </properties>
+              </component>
+              <grid id="b5e75" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="287c4" class="javax.swing.JButton" binding="fePreviewSourceButton">
+                    <constraints/>
+                    <properties>
+                      <text value="Preview Source"/>
+                    </properties>
+                  </component>
+                  <component id="e324f" class="javax.swing.JButton" binding="fePreviewTargetButton">
+                    <constraints/>
+                    <properties>
+                      <text value="Preview Target"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <scrollpane id="dcf2c">
+                <constraints>
+                  <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="60447" class="javax.swing.JTextArea" binding="feFileContentsTextArea">
+                    <constraints/>
+                    <properties>
+                      <editable value="false"/>
+                      <lineWrap value="true"/>
+                      <rows value="10"/>
+                      <wrapStyleWord value="true"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="b1bab" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="File Contents:"/>
+                </properties>
+              </component>
+              <component id="6a7be" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Key / Password"/>
+                </properties>
+              </component>
+              <component id="49cc2" class="javax.swing.JTextField" binding="feKeyOrPasswordForFileTextField">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="P@ssw0rd"/>
+                </properties>
+              </component>
+              <component id="10ca9" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Select output directory:"/>
+                </properties>
+              </component>
+              <component id="c2b38" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Select output file:"/>
+                </properties>
+              </component>
+              <component id="45649" class="javax.swing.JTextField" binding="feOutputFileNameTextField">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="593a9" binding="fileDecryptTabPanel" layout-manager="GridLayoutManager" row-count="12" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="2" left="2" bottom="2" right="2"/>
+            <constraints>
+              <tabbedpane title="File - Decrypt"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="abde0" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Select file to decrypt:"/>
+                </properties>
+              </component>
+              <component id="84ab7" class="javax.swing.JTextField" binding="fdSourceFileTextField">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="/home/apput/Desktop/Workshop/output/fr-automation.yaml.enc"/>
+                </properties>
+              </component>
+              <component id="9263" class="javax.swing.JCheckBox" binding="fdEncryptInPlaceCheckBox">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Decrypt in-place"/>
+                </properties>
+              </component>
+              <component id="47806" class="javax.swing.JTextField" binding="fdOutputDirectoryTextField">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="/home/apput/Desktop/Workshop/config/"/>
+                </properties>
+              </component>
+              <grid id="b4a2b" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="c006c" class="javax.swing.JButton" binding="fdPreviewSourceButton">
+                    <constraints/>
+                    <properties>
+                      <text value="Preview Source"/>
+                    </properties>
+                  </component>
+                  <component id="d055a" class="javax.swing.JButton" binding="fdPreviewTargetButton">
+                    <constraints/>
+                    <properties>
+                      <text value="Preview Target"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <scrollpane id="cc307">
+                <constraints>
+                  <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="c9b38" class="javax.swing.JTextArea" binding="fdFileContentsTextArea">
+                    <constraints/>
+                    <properties>
+                      <editable value="false"/>
+                      <lineWrap value="true"/>
+                      <rows value="10"/>
+                      <wrapStyleWord value="true"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="4d315" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="File Contents:"/>
+                </properties>
+              </component>
+              <component id="300ff" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Key / Password"/>
+                </properties>
+              </component>
+              <component id="91613" class="javax.swing.JTextField" binding="fdKeyOrPasswordForFileTextField">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="P@ssw0rd"/>
+                </properties>
+              </component>
+              <component id="5b074" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Select output directory:"/>
+                </properties>
+              </component>
+              <component id="2a454" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Select output file:"/>
+                </properties>
+              </component>
+              <component id="f19f7" class="javax.swing.JTextField" binding="fdOutputFileNameTextField">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="fr-automation-plain.yaml"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="97ea5" binding="textEncryptTabPanel" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="2" left="2" bottom="2" right="2"/>
+            <constraints>
+              <tabbedpane title="Text - Encrypt"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="a43b" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="18"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <labelFor value="f8377"/>
+                  <text value="Plain Text:"/>
+                </properties>
+              </component>
+              <scrollpane id="f8377">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="90"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="355ea" class="javax.swing.JTextArea" binding="tePlainTextArea">
+                    <constraints/>
+                    <properties>
+                      <lineWrap value="true"/>
+                      <rows value="5"/>
+                      <text value="Mary had a little lamb&#10;Little lamb, little lamb&#10;Mary had a little lamb&#10;Its fleece was white as snow&#10;And everywhere that Mary went&#10;Mary went, Mary went&#10;Everywhere that Mary went&#10;The lamb was sure to go&#10;&#10;He followed her to school one day&#10;School one day, school one day&#10;He followed her to school one day&#10;Which was against the rule&#10;It made the children laugh and play&#10;Laugh and play, laugh and play&#10;It made the children laugh and play&#10;To see a lamb at school&#10;&#10;And so the teacher turned him out&#10;Turned him out, turned him out&#10;And so the teacher turned him out&#10;But still he lingered near&#10;And waited patiently&#10;Patiently, patiently&#10;And wai-aited patiently&#10;Til Mary did appear&#10;&#10;Mary had a little lamb&#10;Little lamb, little lamb&#10;Mary had a little lamb&#10;Its fleece was white as snow&#10;And everywhere that Mary went&#10;Mary went, Mary went&#10;Everywhere that Mary went&#10;The lamb was sure to go"/>
+                      <wrapStyleWord value="true"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="2d34d" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="18"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <labelFor value="3c717"/>
+                  <text value="Key / Password:"/>
+                </properties>
+              </component>
+              <scrollpane id="3c717">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="36"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="b4c87" class="javax.swing.JTextArea" binding="teKeyArea">
+                    <constraints/>
+                    <properties>
+                      <lineWrap value="true"/>
+                      <rows value="2"/>
+                      <text value="P@ssword1"/>
+                      <wrapStyleWord value="true"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="287db" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="18"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <labelFor value="f9266"/>
+                  <text value="Cypher Text:"/>
+                </properties>
+              </component>
+              <scrollpane id="f9266">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="90"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="c8503" class="javax.swing.JTextArea" binding="teCipherTextArea">
+                    <constraints/>
+                    <properties>
+                      <editable value="false"/>
+                      <lineWrap value="true"/>
+                      <rows value="5"/>
+                      <wrapStyleWord value="true"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+          <grid id="689a0" binding="textDecryptTabPanel" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="2" left="2" bottom="2" right="2"/>
+            <constraints>
+              <tabbedpane title="Text - Decrypt"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="882b6" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="18"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <labelFor value="f8377"/>
+                  <text value="Cipher Text"/>
+                </properties>
+              </component>
+              <scrollpane id="2af9e">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="90"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="4c6e6" class="javax.swing.JTextArea" binding="tdCipherTextArea">
+                    <constraints/>
+                    <properties>
+                      <lineWrap value="true"/>
+                      <rows value="5"/>
+                      <text value="OtASNeY/SzjW8pOwFm8qe1D13TjiPIkJCV2x4iKKFWS7ikmBAKO1gN7Zrgq6DqhnOtASNeY/SzjW8pOwFm8qe53UduUlXgPODNa+MdIrjwwcGtj3HUwkkCT7G51mpiFY2Vtg1Ygib56/TRC3JfAVbT6CJHRn5SyTmh7CCi5mDmJBXvpPRshAoQB2XkWkKJj3uOJGP/Cs+Z9O0d3tu3h3eemeBfZNb5SwCVgaDtkFk1LDcdSVVgG9AcjA8c4ta4rShsf2tbL/yQfofn2BumU5F3QPgg4Dnxk1JpQkYNbhflfK9lPVkoN5yDeJtaX63JwI4jzX8xpQe3txtcBX0vnkz0hi4Y+BzwDoXVw6hPUjCPxxGFnYkHpjvlz8Q2fNnCHTysV9wk9QOzle3DtQ2Xua02z54CDN/BZs6AbGvduMT/vYZBJFRmSqQKAJqBHI/k23kRHuz+QXOtsK6ozvmjpeohewmQHaUOgt2YQyzxUY9q6DnOYEyESOW4tT8y7XubkD5mZNNqAYrAbGWy2QJkJEe82hYUJC8mg5HAFJW4EhroNE4CjVy8Be5cjKMh1cH5zGV1K3CEXRnzaX7BAWYRi9GFWBoAQsJEhHBTbx890nUFmC+Ddq8kQ1Ne9RheiMtKVjuSzkGxZBNxee2FyUT4cBNJQirsChx9bJNSlf63gnKG+87tDeU0SgRN2UkIL066fr1RYxUCFldpCUlYVij1b0fa5e9YFZvZurAF4xZjWciWsIZrUrYp/nkpeEk/yc3DDtb2pSpSMK9bTwQUhgJ7vLSB5E6gVnPDXjeRJEA2nEWEEIJHIVazAsnN+neDXNX3Qz9Chaecr4CmkhupskaBjjm7xqPNhyGjhU2N19rvXOtBtMYgzqdqb2uOciILnlEMVpoX7nF2PBnFL/7mpnesZ2SOdFRkV6JHDbgvt8nPlHqNX+hQYf2hV4elyT5DUKayzloX7nF2PBnFL/7mpnesZ2SMEgxF2TkjkZptg6l5l35RDK+sdSNFOURwiwk+FBGAFUUFOAvCi+/x/iai7El0wnr+NcyBiL33ibK0KPiom2K+yVAusn/IKzGh8edrH9Q9WJCAKYl/Yr86zEBEGx3pc6D99cABsmQ1Ih3FuitqPvlKaV0TbQg5JUGZbKnNctU83HPWE5uVak5zSQZyto0FEa3Q=="/>
+                      <wrapStyleWord value="true"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="95c7d" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="18"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <labelFor value="3c717"/>
+                  <text value="Key / Password:"/>
+                </properties>
+              </component>
+              <scrollpane id="895ca">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="36"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="f5817" class="javax.swing.JTextArea" binding="tdKeyArea">
+                    <constraints/>
+                    <properties>
+                      <lineWrap value="true"/>
+                      <rows value="2"/>
+                      <text value="P@ssword1"/>
+                      <wrapStyleWord value="true"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="aae15" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="18"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <labelFor value="f9266"/>
+                  <text value="Plain Text:"/>
+                </properties>
+              </component>
+              <scrollpane id="44cba">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="370" height="90"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="3aa08" class="javax.swing.JTextArea" binding="tdPlainTextArea">
+                    <constraints/>
+                    <properties>
+                      <editable value="false"/>
+                      <lineWrap value="true"/>
+                      <rows value="5"/>
+                      <wrapStyleWord value="true"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
+      <scrollpane id="35b80">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag top="3" left="10" bottom="10" right="10" weightx="10.0" weighty="20.0"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="f489d" class="javax.swing.JTextArea" binding="outputMessages">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="algorithmGroup">
+      <member id="2edf4"/>
+      <member id="985e7"/>
+      <member id="d689a"/>
+      <member id="9606a"/>
+      <member id="4d9a1"/>
+      <member id="15a30"/>
+      <member id="b812d"/>
+      <member id="a0923"/>
+      <member id="bd0c0"/>
+      <member id="6f36f"/>
+      <member id="702f8"/>
+      <member id="5968f"/>
+      <member id="c0e9b"/>
+      <member id="b1102"/>
+      <member id="47910"/>
+    </group>
+    <group name="modeGroup">
+      <member id="42133"/>
+      <member id="a20d3"/>
+      <member id="d2ca5"/>
+      <member id="c13a5"/>
+      <member id="2f98a"/>
+      <member id="91505"/>
+      <member id="bdd52"/>
+      <member id="eb5de"/>
+    </group>
+    <group name="paddingGroup">
+      <member id="2b676"/>
+      <member id="b30fb"/>
+      <member id="41fd7"/>
+      <member id="31204"/>
+      <member id="c81ac"/>
+      <member id="1ec7"/>
+    </group>
+  </buttonGroups>
+</form>
