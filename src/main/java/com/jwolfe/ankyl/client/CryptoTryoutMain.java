@@ -289,12 +289,12 @@ public class CryptoTryoutMain {
         var box = getBox();
         logger.info("Encryption: Source file - '" + sourceFilePath + "'");
         logger.info("Encryption: Target file - '" + destinationFilePath + "'");
-        int confirmation = JOptionPane.showConfirmDialog(this.cryptoMainPanel, "Encryption:\n" + "" +
-                "Source file - '" + sourceFilePath + "'\n" +
-                "Target file - '" + destinationFilePath + "'\n" +
-                "Crypto settings - '" + box.getTransformation() + "'\n" +
-                "\n" +
-                "Are you sure you want to proceed ?");
+        int confirmation = JOptionPane.showConfirmDialog(this.cryptoMainPanel, "Encryption:\n" + ""
+                + "Source file - '" + sourceFilePath + "'\n"
+                + "Target file - '" + destinationFilePath + "'\n"
+                + "Crypto settings - '" + box.getTransformation() + "'\n"
+                + "\n"
+                + "Are you sure you want to proceed ?");
 
         if (confirmation != 0) {
             logger.info("Encryption cancelled");
@@ -355,12 +355,12 @@ public class CryptoTryoutMain {
         var box = getBox();
         logger.info("Decryption: Source file - '" + sourceFilePath + "'");
         logger.info("Decryption: Target file - '" + destinationFilePath + "'");
-        int confirmation = JOptionPane.showConfirmDialog(this.cryptoMainPanel, "Decryption\n" + "" +
-                "Source file - '" + sourceFilePath + "'\n" +
-                "Target file - '" + sourceFilePath + "'\n" +
-                "Crypto settings - '" + box.getTransformation() + "'\n" +
-                "\n" +
-                "Are you sure you want to proceed ?");
+        int confirmation = JOptionPane.showConfirmDialog(this.cryptoMainPanel, "Decryption\n" + ""
+                + "Source file - '" + sourceFilePath + "'\n"
+                + "Target file - '" + sourceFilePath + "'\n"
+                + "Crypto settings - '" + box.getTransformation() + "'\n"
+                + "\n"
+                + "Are you sure you want to proceed ?");
 
         if (confirmation != 0) {
             logger.info("Decryption cancelled");
