@@ -31,21 +31,18 @@ public class AesBox extends CryptoBoxBase {
         this.padding = CipherPaddings.PKCS5_PADDING;
     }
 
-    public AesBox(String mode) {
+    public AesBox(final String mode) {
         this.mode = mode;
     }
 
     @Override
-    public String encrypt(String plainText, String key) {
+    public String encrypt(final String plainText, final String key) {
         String cipherText = null;
 
-        try
-        {
+        try {
             Cipher cipher = getEncryptionCipher(key);
             cipherText = Base64.getEncoder().encodeToString(cipher.doFinal(plainText.getBytes("UTF-8")));
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             logger.error("Error while encrypting: " + e.toString());
         }
 
@@ -53,16 +50,13 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public byte[] encryptAsByteArray(String plainText, String key) {
+    public byte[] encryptAsByteArray(final String plainText, final String key) {
         byte[] cipherText = null;
 
-        try
-        {
+        try {
             Cipher cipher = getEncryptionCipher(key);
             cipherText = cipher.doFinal(plainText.getBytes("UTF-8"));
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             logger.error("Error while encrypting: " + e.toString());
         }
 
@@ -70,16 +64,13 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public String decrypt(String cipherText, String key) {
+    public String decrypt(final String cipherText, final String key) {
         String plainText = null;
 
-        try
-        {
+        try {
             Cipher cipher = getDecryptionCipher(key);
             plainText = new String(cipher.doFinal(Base64.getDecoder().decode(cipherText)));
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             logger.error("Error while decrypting: " + e.toString());
         }
 
@@ -87,16 +78,13 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public byte[] decryptAsByteArray(String cipherText, String key) {
+    public byte[] decryptAsByteArray(final String cipherText, final String key) {
         byte[] plainText = null;
 
-        try
-        {
+        try {
             Cipher cipher = getDecryptionCipher(key);
             plainText = cipher.doFinal(Base64.getDecoder().decode(cipherText));
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             logger.error("Error while decrypting: " + e.toString());
         }
 
@@ -104,16 +92,13 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public byte[] decryptAsByteArray(byte[] cypherText, String key) {
+    public byte[] decryptAsByteArray(byte[] cypherText, final String key) {
         byte[] plainText = null;
 
-        try
-        {
+        try {
             Cipher cipher = getDecryptionCipher(key);
             plainText = cipher.doFinal(cypherText);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             logger.error("Error while decrypting: " + e.toString());
         }
 
@@ -121,9 +106,9 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public boolean encryptFile(String plainTextFilePathString, String key, String cipherTextFilePathString) {
+    public boolean encryptFile(final String plainTextFilePathString, final String key, final String cipherTextFilePathString) {
         var cipherText = getFileContentsAsEncryptedString(plainTextFilePathString, key);
-        if(cipherText == null) {
+        if (cipherText == null) {
             return false;
         }
 
@@ -132,9 +117,9 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public boolean decryptFile(String cipherTextFilePathString, String key, String plainTextFilePathString) {
+    public boolean decryptFile(final String cipherTextFilePathString, final String key, final String plainTextFilePathString) {
         var plainText = getFileContentsAsDecryptedString(cipherTextFilePathString, key);
-        if(plainText == null) {
+        if (plainText == null) {
             return false;
         }
 
@@ -160,11 +145,11 @@ public class AesBox extends CryptoBoxBase {
         }
 
         String plainText = getFileContents(plainTextFilePathString);
-        if(plainText == null) {
+        if (plainText == null) {
             return null;
         }
 
-        if(plainText.trim().equals("")) {
+        if (plainText.trim().equals("")) {
             logger.error("Source file does not contain any text");
             return null;
         }
@@ -180,11 +165,11 @@ public class AesBox extends CryptoBoxBase {
         }
 
         String cipherText = getFileContents(cipherTextFilePathString);
-        if(cipherText == null) {
+        if (cipherText == null) {
             return null;
         }
 
-        if(cipherText.trim().equals("")) {
+        if (cipherText.trim().equals("")) {
             logger.error("Source file does not contain any text");
             return null;
         }
@@ -210,11 +195,11 @@ public class AesBox extends CryptoBoxBase {
         }
 
         String plainText = getFileContents(plainTextFilePathString);
-        if(plainText == null) {
+        if (plainText == null) {
             return null;
         }
 
-        if(plainText.trim().equals("")) {
+        if (plainText.trim().equals("")) {
             logger.error("Source file does not contain any text");
             return null;
         }
@@ -230,11 +215,11 @@ public class AesBox extends CryptoBoxBase {
         }
 
         String cipherText = getFileContents(cipherTextFilePathString);
-        if(cipherText == null) {
+        if (cipherText == null) {
             return null;
         }
 
-        if(cipherText.trim().equals("")) {
+        if (cipherText.trim().equals("")) {
             logger.error("Source file does not contain any text");
             return null;
         }
@@ -252,18 +237,16 @@ public class AesBox extends CryptoBoxBase {
         return getFileContentsAsDecryptedByteArray(cipherTextFilePathString.toString(), key);
     }
 
-    private SecretKeySpec getAesKey(String inputKey)
-    {
+    private SecretKeySpec getAesKey(String inputKey) {
         SecretKeySpec spec = null;
 
         try {
             byte[] keyBytes = inputKey.getBytes("UTF-8");
-            MessageDigest sha  = MessageDigest.getInstance("SHA-1");
+            MessageDigest sha = MessageDigest.getInstance("SHA-1");
             keyBytes = sha.digest(keyBytes);
             keyBytes = Arrays.copyOf(keyBytes, 16);
             spec = new SecretKeySpec(keyBytes, this.algorithm);
-        }
-        catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
 
@@ -277,7 +260,7 @@ public class AesBox extends CryptoBoxBase {
         }
 
         Path filePath = Paths.get(filePathString);
-        if(!Files.exists(filePath)) {
+        if (!Files.exists(filePath)) {
             logger.error("Invalid path or file does not exist - '" + filePathString + "'");
             return null;
         }
@@ -300,7 +283,7 @@ public class AesBox extends CryptoBoxBase {
 
         File file = new File(filePathString);
         File directory = file.getParentFile();
-        if(!directory.exists()) {
+        if (!directory.exists()) {
             directory.mkdirs();
         }
 
@@ -314,10 +297,9 @@ public class AesBox extends CryptoBoxBase {
     private Cipher getEncryptionCipher(String key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
         var keySpec = getAesKey(key);
         Cipher cipher = Cipher.getInstance(this.getTransformation());
-        if(this.mode.equals(CipherModes.CBC)) {
+        if (this.mode.equals(CipherModes.CBC)) {
             cipher.init(Cipher.ENCRYPT_MODE, keySpec, new IvParameterSpec(new byte[16]));
-        }
-        else {
+        } else {
             cipher.init(Cipher.ENCRYPT_MODE, keySpec);
         }
 
@@ -327,10 +309,9 @@ public class AesBox extends CryptoBoxBase {
     private Cipher getDecryptionCipher(String key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
         var keySpec = getAesKey(key);
         Cipher cipher = Cipher.getInstance(this.getTransformation());
-        if(this.mode.equals(CipherModes.CBC)) {
+        if (this.mode.equals(CipherModes.CBC)) {
             cipher.init(Cipher.DECRYPT_MODE, keySpec, new IvParameterSpec(new byte[16]));
-        }
-        else {
+        } else {
             cipher.init(Cipher.DECRYPT_MODE, keySpec);
         }
 

@@ -197,12 +197,11 @@ public class CryptoTryoutMain {
         var mode = getCurrentMode();
         switch (mode) {
             case FileEncrypt: // File - Encrypt
-                if(feEncryptInPlaceCheckBox.isSelected()) {
+                if (feEncryptInPlaceCheckBox.isSelected()) {
                     feOutputDirectoryTextField.setEnabled(false);
                     feOutputFileNameTextField.setEnabled(false);
                     fePreviewTargetButton.setEnabled(false);
-                }
-                else {
+                } else {
                     feOutputDirectoryTextField.setEnabled(true);
                     feOutputFileNameTextField.setEnabled(true);
                     fePreviewTargetButton.setEnabled(true);
@@ -210,12 +209,11 @@ public class CryptoTryoutMain {
 
                 break;
             case FileDecrypt: // File - Decrypt
-                if(fdEncryptInPlaceCheckBox.isSelected()) {
+                if (fdEncryptInPlaceCheckBox.isSelected()) {
                     fdOutputDirectoryTextField.setEnabled(false);
                     fdOutputFileNameTextField.setEnabled(false);
                     fdPreviewTargetButton.setEnabled(false);
-                }
-                else {
+                } else {
                     fdOutputDirectoryTextField.setEnabled(true);
                     fdOutputFileNameTextField.setEnabled(true);
                     fdPreviewTargetButton.setEnabled(true);
@@ -229,7 +227,7 @@ public class CryptoTryoutMain {
         int selectedTabIndex = modeTabPane.getSelectedIndex();
         switch (selectedTabIndex) {
             case 0: // File - Encrypt
-               return CyptoTabMode.FileEncrypt;
+                return CyptoTabMode.FileEncrypt;
             case 1: // File - Decrypt
                 return CyptoTabMode.FileDecrypt;
             case 2: // Text - Encrypt
@@ -271,12 +269,12 @@ public class CryptoTryoutMain {
         logger.info("Initializing encryption for file mode");
 
         Path sourceFilePath = validateAndGetFeSourceFilePath();
-        if(sourceFilePath == null) {
+        if (sourceFilePath == null) {
             return;
         }
 
         Path destinationFilePath = validateAndGetFeDestinationFilePath();
-        if(destinationFilePath == null) {
+        if (destinationFilePath == null) {
             return;
         }
 
@@ -304,7 +302,7 @@ public class CryptoTryoutMain {
         }
 
         boolean success = box.encryptFile(sourceFilePath, key, destinationFilePath);
-        if(!success) {
+        if (!success) {
             logger.info("Encryption failed");
         }
 
@@ -337,12 +335,12 @@ public class CryptoTryoutMain {
         logger.info("Initializing decrption for file mode");
 
         Path sourceFilePath = validateAndGetFdSourceFilePath();
-        if(sourceFilePath == null) {
+        if (sourceFilePath == null) {
             return;
         }
 
         Path destinationFilePath = validateAndGetFdDestinationFilePath();
-        if(destinationFilePath == null) {
+        if (destinationFilePath == null) {
             return;
         }
 
@@ -370,7 +368,7 @@ public class CryptoTryoutMain {
         }
 
         boolean success = box.decryptFile(sourceFilePath, key, destinationFilePath);
-        if(!success) {
+        if (!success) {
             logger.info("Decryption failed");
         }
 
@@ -380,13 +378,13 @@ public class CryptoTryoutMain {
     private void decryptTextMode() {
         logger.info("Initializing decryption for text mode");
 
-        if(tdCipherTextArea.getText().trim().equals("")) {
+        if (tdCipherTextArea.getText().trim().equals("")) {
             logger.info("No text to decrypt");
             JOptionPane.showMessageDialog(this.cryptoMainPanel, "No text to decrypt", "Empty cypher text", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
 
-        if(tdKeyArea.getText().trim().equals("")) {
+        if (tdKeyArea.getText().trim().equals("")) {
             logger.info("No key or password provided");
             JOptionPane.showMessageDialog(this.cryptoMainPanel, "No key or password provided", "Empty key / password", JOptionPane.INFORMATION_MESSAGE);
             return;
@@ -463,7 +461,7 @@ public class CryptoTryoutMain {
         logger.info("Previewing destination file - '" + destinationFilePath.toString() + "'");
 
         String destinationFileContents = getFeDestinationFileContents();
-        if(destinationFileContents == null) {
+        if (destinationFileContents == null) {
             return;
         }
 
@@ -478,7 +476,7 @@ public class CryptoTryoutMain {
         logger.info("Previewing destination file - '" + destinationFilePath.toString() + "'");
 
         String destinationFileContents = getFdDestinationFileContents();
-        if(destinationFileContents == null) {
+        if (destinationFileContents == null) {
             return;
         }
 
@@ -497,7 +495,7 @@ public class CryptoTryoutMain {
     }
 
     private String getSourceFileContents(Path sourceFilePath) {
-        if(sourceFilePath == null) {
+        if (sourceFilePath == null) {
             return null;
         }
 
@@ -522,11 +520,11 @@ public class CryptoTryoutMain {
     }
 
     private String getDestinationFileContents(Path destinationFilePath) {
-        if(destinationFilePath == null) {
+        if (destinationFilePath == null) {
             return null;
         }
 
-        if(!Files.exists(destinationFilePath)) {
+        if (!Files.exists(destinationFilePath)) {
             String message = "Destination file '" + destinationFilePath.toString() + "' does not exist yet";
             logger.info(message);
             JOptionPane.showMessageDialog(this.cryptoMainPanel, message, "Destination file does not exist", JOptionPane.INFORMATION_MESSAGE);
@@ -546,7 +544,7 @@ public class CryptoTryoutMain {
     private void guessFeOutputFileName() {
         String sourceFilePathString = feSourceFileTextField.getText();
         if (sourceFilePathString.trim().equals("")) {
-           return;
+            return;
         }
 
         Path sourceFilePath = Paths.get(sourceFilePathString);
@@ -578,7 +576,7 @@ public class CryptoTryoutMain {
         }
 
         Path sourceFilePath = Paths.get(sourceFilePathString);
-        if(!Files.exists(sourceFilePath)) {
+        if (!Files.exists(sourceFilePath)) {
             logger.info("Invalid path or file does not exist");
             JOptionPane.showMessageDialog(this.cryptoMainPanel, "Invalid path or file does not exist", "Invalid path", JOptionPane.INFORMATION_MESSAGE);
             return null;
@@ -588,10 +586,9 @@ public class CryptoTryoutMain {
     }
 
     private Path validateAndGetFeDestinationFilePath() {
-        if(feEncryptInPlaceCheckBox.isSelected()) {
+        if (feEncryptInPlaceCheckBox.isSelected()) {
             return validateAndGetFeSourceFilePath();
-        }
-        else {
+        } else {
             String destinationDirectoryPathString = feOutputDirectoryTextField.getText();
             String destinationFileName = feOutputFileNameTextField.getText();
             return validateAndGetDestinationFilePath(destinationDirectoryPathString, destinationFileName);
@@ -599,10 +596,9 @@ public class CryptoTryoutMain {
     }
 
     private Path validateAndGetFdDestinationFilePath() {
-        if(feEncryptInPlaceCheckBox.isSelected()) {
+        if (feEncryptInPlaceCheckBox.isSelected()) {
             return validateAndGetFdSourceFilePath();
-        }
-        else {
+        } else {
             String destinationDirectoryPathString = fdOutputDirectoryTextField.getText();
             String destinationFileName = fdOutputFileNameTextField.getText();
             return validateAndGetDestinationFilePath(destinationDirectoryPathString, destinationFileName);
@@ -623,7 +619,7 @@ public class CryptoTryoutMain {
         }
 
         File directory = new File(destinationDirectoryPathString);
-        if(!directory.exists()) {
+        if (!directory.exists()) {
             directory.mkdirs();
         }
 
@@ -642,85 +638,63 @@ public class CryptoTryoutMain {
             box.setPadding(padding);
         }
 
-        return  box;
+        return box;
     }
 
     private String getSelectedAlgorithm() {
-        if(AESRadioButton.isSelected()) {
+        if (AESRadioButton.isSelected()) {
             return CipherAlgorithms.AES;
-        }
-        else if(ARCFOURRadioButton.isSelected()) {
+        } else if (ARCFOURRadioButton.isSelected()) {
             return CipherAlgorithms.ARCFOUR;
-        }
-        else if(ARCFOURRadioButton.isSelected()) {
+        } else if (ARCFOURRadioButton.isSelected()) {
             return CipherAlgorithms.ARCFOUR;
-        }
-        else if(AESWrapRadioButton.isSelected()) {
+        } else if (AESWrapRadioButton.isSelected()) {
             return CipherAlgorithms.AES_WRAP;
-        }
-        else if(blowfishRadioButton.isSelected()) {
+        } else if (blowfishRadioButton.isSelected()) {
             return CipherAlgorithms.BLOWFISH;
-        }
-        else if(CCMRadioButton.isSelected()) {
+        } else if (CCMRadioButton.isSelected()) {
             return CipherAlgorithms.CCM;
-        }
-        else if(DESRadioButton.isSelected()) {
+        } else if (DESRadioButton.isSelected()) {
             return CipherAlgorithms.DES;
-        }
-        else if(a3DESRadioButton.isSelected()) {
+        } else if (a3DESRadioButton.isSelected()) {
             return CipherAlgorithms.DES_EDE;
-        }
-        else if(a3DESWrapRadioButton.isSelected()) {
+        } else if (a3DESWrapRadioButton.isSelected()) {
             return CipherAlgorithms.DES_EDE_WRAP;
-        }
-        else if(ECIESRadioButton.isSelected()) {
+        } else if (ECIESRadioButton.isSelected()) {
             return CipherAlgorithms.ECIES;
-        }
-        else if(GCMRadioButton.isSelected()) {
+        } else if (GCMRadioButton.isSelected()) {
             return CipherAlgorithms.GCM;
-        }
-        else if(PBERadioButton1.isSelected()) {
+        } else if (PBERadioButton1.isSelected()) {
             return CipherAlgorithms.PBE;
-        }
-        else if(RC2RadioButton1.isSelected()) {
+        } else if (RC2RadioButton1.isSelected()) {
             return CipherAlgorithms.RC2;
-        }
-        else if(RC4RadioButton.isSelected()) {
+        } else if (RC4RadioButton.isSelected()) {
             return CipherAlgorithms.RC4;
-        }
-        else if(RC2RadioButton1.isSelected()) {
+        } else if (RC2RadioButton1.isSelected()) {
             return CipherAlgorithms.RC5;
-        }
-        else if(RSARadioButton.isSelected()) {
+        } else if (RSARadioButton.isSelected()) {
             return CipherAlgorithms.RSA;
         }
 
-        return  null;
+        return null;
     }
 
     private String getSelectedMode() {
-        if(noneRadioButton.isSelected()) {
+        if (noneRadioButton.isSelected()) {
             return CipherModes.NONE;
-        }
-        else if(CBCRadioButton.isSelected()) {
+        } else if (CBCRadioButton.isSelected()) {
             return CipherModes.CBC;
-        }
-        else if(CFBRadioButton.isSelected()) {
+        } else if (CFBRadioButton.isSelected()) {
             return CipherModes.CFB;
-        }
-        else if(CTRRadioButton.isSelected()) {
+        } else if (CTRRadioButton.isSelected()) {
             return CipherModes.CTR;
-        }
-        else if(CTSRadioButton.isSelected()) {
+        } else if (CTSRadioButton.isSelected()) {
             return CipherModes.CTS;
-        }
-        else if(ECBRadioButton.isSelected()) {
+        } else if (ECBRadioButton.isSelected()) {
             return CipherModes.ECB;
-        }
-        else if(OFBRadioButton.isSelected()) {
+        } else if (OFBRadioButton.isSelected()) {
             return CipherModes.OFB;
-        }
-        else if(PCBCRadioButton.isSelected()) {
+        } else if (PCBCRadioButton.isSelected()) {
             return CipherModes.PCBC;
         }
 
@@ -728,22 +702,17 @@ public class CryptoTryoutMain {
     }
 
     private String getSelectedPadding() {
-        if(noPaddingRadioButton.isSelected()) {
+        if (noPaddingRadioButton.isSelected()) {
             return CipherPaddings.NO_PADDING;
-        }
-        else if(ISO20126RadioButton.isSelected()) {
+        } else if (ISO20126RadioButton.isSelected()) {
             return CipherPaddings.ISO_10126_PADDING;
-        }
-        else if(OAEPRadioButton.isSelected()) {
+        } else if (OAEPRadioButton.isSelected()) {
             return CipherPaddings.OAEP_PADDING;
-        }
-        else if(PKCS1RadioButton.isSelected()) {
+        } else if (PKCS1RadioButton.isSelected()) {
             return CipherPaddings.PKCS1_PADDING;
-        }
-        else if(PKCS5RadioButton.isSelected()) {
+        } else if (PKCS5RadioButton.isSelected()) {
             return CipherPaddings.PKCS5_PADDING;
-        }
-        else if(SSL3RadioButton.isSelected()) {
+        } else if (SSL3RadioButton.isSelected()) {
             return CipherPaddings.SSL3_PADDING;
         }
 
