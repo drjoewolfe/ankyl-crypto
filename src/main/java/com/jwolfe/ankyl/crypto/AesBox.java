@@ -128,17 +128,17 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public boolean encryptFile(Path plainTextFilePath, String key, Path cipherTextFilePath) {
+    public boolean encryptFile(final Path plainTextFilePath, final String key, final Path cipherTextFilePath) {
         return encryptFile(plainTextFilePath.toString(), key, cipherTextFilePath.toString());
     }
 
     @Override
-    public boolean decryptFile(Path cipherTextFilePath, String key, Path plainTextFilePath) {
+    public boolean decryptFile(final Path cipherTextFilePath, final String key, final Path plainTextFilePath) {
         return decryptFile(cipherTextFilePath.toString(), key, plainTextFilePath.toString());
     }
 
     @Override
-    public String getFileContentsAsEncryptedString(String plainTextFilePathString, String key) {
+    public String getFileContentsAsEncryptedString(final String plainTextFilePathString, final String key) {
         if (key.trim().equals("")) {
             logger.error("No key or password provided");
             return null;
@@ -158,7 +158,7 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public String getFileContentsAsDecryptedString(String cipherTextFilePathString, String key) {
+    public String getFileContentsAsDecryptedString(final String cipherTextFilePathString, final String key) {
         if (key.trim().equals("")) {
             logger.error("No key or password provided");
             return null;
@@ -178,17 +178,17 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public String getFileContentsAsEncryptedString(Path plainTextFilePath, String key) {
+    public String getFileContentsAsEncryptedString(final Path plainTextFilePath, final String key) {
         return getFileContentsAsEncryptedString(plainTextFilePath.toString(), key);
     }
 
     @Override
-    public String getFileContentsAsDecryptedString(Path cipherTextFilePath, String key) {
+    public String getFileContentsAsDecryptedString(final Path cipherTextFilePath, final String key) {
         return getFileContentsAsDecryptedString(cipherTextFilePath.toString(), key);
     }
 
     @Override
-    public byte[] getFileContentsAsEncryptedByteArray(String plainTextFilePathString, String key) {
+    public byte[] getFileContentsAsEncryptedByteArray(final String plainTextFilePathString, final String key) {
         if (key.trim().equals("")) {
             logger.error("No key or password provided");
             return null;
@@ -208,7 +208,7 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public byte[] getFileContentsAsDecryptedByteArray(String cipherTextFilePathString, String key) {
+    public byte[] getFileContentsAsDecryptedByteArray(final String cipherTextFilePathString, final String key) {
         if (key.trim().equals("")) {
             logger.error("No key or password provided");
             return null;
@@ -228,16 +228,16 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public byte[] getFileContentsAsEncryptedByteArray(Path plainTextFilePathString, String key) {
+    public byte[] getFileContentsAsEncryptedByteArray(final Path plainTextFilePathString, final String key) {
         return getFileContentsAsEncryptedByteArray(plainTextFilePathString.toString(), key);
     }
 
     @Override
-    public byte[] getFileContentsAsDecryptedByteArray(Path cipherTextFilePathString, String key) {
+    public byte[] getFileContentsAsDecryptedByteArray(final Path cipherTextFilePathString, final String key) {
         return getFileContentsAsDecryptedByteArray(cipherTextFilePathString.toString(), key);
     }
 
-    private SecretKeySpec getAesKey(String inputKey) {
+    private SecretKeySpec getAesKey(final String inputKey) {
         SecretKeySpec spec = null;
 
         try {
@@ -253,7 +253,7 @@ public class AesBox extends CryptoBoxBase {
         return spec;
     }
 
-    private String getFileContents(String filePathString) {
+    private String getFileContents(final String filePathString) {
         if (filePathString.trim().equals("")) {
             logger.error("No file specified to read");
             return null;
@@ -275,7 +275,7 @@ public class AesBox extends CryptoBoxBase {
         return fileContents;
     }
 
-    private void writeToFile(String filePathString, String content) {
+    private void writeToFile(final String filePathString, final String content) {
         if (filePathString.trim().equals("")) {
             logger.error("No file specified");
             return;
@@ -294,7 +294,7 @@ public class AesBox extends CryptoBoxBase {
         }
     }
 
-    private Cipher getEncryptionCipher(String key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
+    private Cipher getEncryptionCipher(final String key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
         var keySpec = getAesKey(key);
         Cipher cipher = Cipher.getInstance(this.getTransformation());
         if (this.mode.equals(CipherModes.CBC)) {
@@ -306,7 +306,7 @@ public class AesBox extends CryptoBoxBase {
         return cipher;
     }
 
-    private Cipher getDecryptionCipher(String key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
+    private Cipher getDecryptionCipher(final String key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
         var keySpec = getAesKey(key);
         Cipher cipher = Cipher.getInstance(this.getTransformation());
         if (this.mode.equals(CipherModes.CBC)) {
