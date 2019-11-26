@@ -1,12 +1,12 @@
 package com.jwolfe.ankyl.crypto;
 
 public class CipherModes {
-    public final static String NONE = "NONE";
-    public final static String CBC = "CBC";
-    public final static String CFB = "CFB";
-    public final static String CTR = "CTR";
-    public final static String CTS = "CTS";
-    public final static String ECB = "ECB";
-    public final static String OFB = "OFB";
-    public final static String PCBC = "PCBC";
+    public static final String NONE = "NONE";
+    public static final String CBC = "CBC";
+    public static final String CFB = "CFB";
+    public static final String CTR = "CTR";
+    public static final String CTS = "CTS";
+    public static final String ECB = "ECB";
+    public static final String OFB = "OFB";
+    public static final String PCBC = "PCBC";
 }

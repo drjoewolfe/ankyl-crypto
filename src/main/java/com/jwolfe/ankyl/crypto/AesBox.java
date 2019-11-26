@@ -92,7 +92,7 @@ public class AesBox extends CryptoBoxBase {
     }
 
     @Override
-    public byte[] decryptAsByteArray(byte[] cypherText, final String key) {
+    public byte[] decryptAsByteArray(final byte[] cypherText, final String key) {
         byte[] plainText = null;
 
         try {
