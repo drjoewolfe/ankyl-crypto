@@ -1,15 +1,29 @@
 package com.jwolfe.ankyl.client;
 
-import com.jwolfe.ankyl.crypto.*;
+import com.jwolfe.ankyl.crypto.AesBox;
+import com.jwolfe.ankyl.crypto.CipherAlgorithms;
+import com.jwolfe.ankyl.crypto.CipherModes;
+import com.jwolfe.ankyl.crypto.CipherPaddings;
+import com.jwolfe.ankyl.crypto.CryptoBox;
 import com.jwolfe.ankyl.swing.JTextAreaAppender;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Files;
@@ -96,31 +110,31 @@ public class CryptoTryoutMain {
 
         encryptButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 encrypt();
             }
         });
         decryptButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 decrypt();
             }
         });
         cancelButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 System.exit(0);
             }
         });
         fePreviewSourceButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 previewSourceFile();
             }
         });
         fePreviewTargetButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 previewDestinationFile();
             }
         });
@@ -128,13 +142,13 @@ public class CryptoTryoutMain {
 
         fdPreviewSourceButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 previewSourceFile();
             }
         });
         fdPreviewTargetButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 previewDestinationFile();
             }
         });
@@ -156,13 +170,13 @@ public class CryptoTryoutMain {
 
         feEncryptInPlaceCheckBox.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 processInPlaceCryptoVisibility();
             }
         });
         fdEncryptInPlaceCheckBox.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 processInPlaceCryptoVisibility();
             }
         });
