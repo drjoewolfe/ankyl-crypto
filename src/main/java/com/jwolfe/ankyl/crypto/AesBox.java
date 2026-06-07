@@ -23,7 +23,7 @@ import java.util.Base64;
 import java.util.Scanner;
 
 public class AesBox extends CryptoBoxBase {
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getLogger(AesBox.class);
 
     public AesBox() {
         this.algorithm = CipherAlgorithms.AES;
